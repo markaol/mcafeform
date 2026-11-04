@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Refund Request</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="logo-header" aria-label="Company logo">
+        <svg class="brand-logo" viewBox="0 0 620 620" role="img" aria-labelledby="logoTitle logoDesc">
+          <title id="logoTitle">Brand Logo</title>
+          <desc id="logoDesc">A red geometric shield style logo.</desc>
+          <defs>
+            <linearGradient id="shieldRed" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d9143d" />
+              <stop offset="38%" stop-color="#d21138" />
+              <stop offset="100%" stop-color="#b0002d" />
+            </linearGradient>
+            <linearGradient id="shieldDepth" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ef1b46" />
+              <stop offset="100%" stop-color="#99001f" />
+            </linearGradient>
+          </defs>
+
+          <path
+            d="M310 30 L540 90 L540 330 Q540 450 438 528 L310 610 L182 528 Q80 450 80 330 L80 90 Z"
+            fill="url(#shieldRed)"
+            opacity="0.96"
+          />
+
+          <path
+            d="M162 134 L310 90 L458 134 L458 325 Q458 416 382 480 L310 530 L238 480 Q162 416 162 325 Z"
+            fill="url(#shieldDepth)"
+            opacity="0.85"
+          />
+
+          <path
+            d="M192 214 L310 118 L428 214 L428 321 Q428 395 369 452 L310 502 L251 452 Q192 395 192 321 Z"
+            fill="#f6f6f6"
+            opacity="0.88"
+          />
+
+          <path
+            d="M310 110 L475 178 L475 330 Q475 414 404 479 L310 544 L216 479 Q145 414 145 330 L145 178 Z"
+            fill="url(#shieldRed)"
+          />
+
+          <path
+            d="M310 160 L432 212 L432 327 Q432 398 373 454 L310 502 L247 454 Q188 398 188 327 L188 212 Z"
+            fill="#f4f4f4"
+          />
+
+          <path
+            d="M310 118 L428 172 L428 299 L310 374 L192 299 L192 172 Z"
+            fill="url(#shieldRed)"
+          />
+
+          <path
+            d="M216 190 L310 138 L404 190 L404 293 L310 347 L216 293 Z"
+            fill="#f4f4f4"
+          />
+
+          <path d="M305 104 L310 82 L315 104 L351 104 L319 131 L335 166 L310 145 L285 166 L301 131 L269 104 Z" fill="#f4f4f4" opacity="0.9"/>
+
+          <path d="M104 161 L152 210 L176 173 L214 170 L205 216 L273 284 L256 405 L188 418 L124 354 L99 278 Z" fill="url(#shieldRed)" opacity="0.7"/>
+          <path d="M516 161 L468 210 L444 173 L406 170 L415 216 L347 284 L364 405 L432 418 L496 354 L521 278 Z" fill="url(#shieldRed)" opacity="0.7"/>
+        </svg>
+      </header>
+
+      <main class="form-card">
+        <div class="card-header">
+          <p class="eyebrow">Payment Support</p>
+          <h1>Refund Request Form</h1>
+        </div>
+
+        <form id="refundForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Enter your email address" required />
+            </div>
+
+            <div class="field">
+              <label for="amount">Amount</label>
+              <input id="amount" name="amount" type="number" min="1" step="0.01" placeholder="Enter refund amount" required />
+            </div>
+
+            <div class="field">
+              <label for="bankName">Bank Name</label>
+              <input id="bankName" name="bankName" type="text" placeholder="Bank where funds should be sent" required />
+            </div>
+
+            <div class="field full-width">
+              <label>Account Type</label>
+              <div class="account-options" role="radiogroup" aria-label="Account type">
+                <label class="option">
+                  <input type="radio" name="accountType" value="Savings" checked />
+                  <span>Savings</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="accountType" value="Current" />
+                  <span>Current</span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="accountType" value="Business" />
+                  <span>Business</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <div id="successMessage" class="success-message hidden" aria-live="polite">
+          <p class="success-title">Refund request submitted successfully.</p>
+          <p class="txn-id">Txn ID: <strong id="txnId">REF-000000</strong></p>
+          <p>Please check your online banking and confirm the payment.</p>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
