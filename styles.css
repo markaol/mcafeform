@@ -3,15 +3,15 @@
 }
 
 :root {
-  --bg: #f3f3f3;
+  color-scheme: light;
+  --bg: #f6f7f9;
   --panel: #ffffff;
-  --text: #1d1d1f;
-  --muted: #6b7280;
-  --line: #e5e7eb;
+  --text: #20232a;
+  --muted: #687080;
+  --line: #e2e5eb;
   --primary: #d0103e;
-  --primary-dark: #9f0129;
-  --primary-soft: #f7d9df;
-  --shadow: 0 18px 40px rgba(16, 24, 40, 0.08);
+  --primary-dark: #a50b31;
+  --shadow: 0 18px 48px rgba(27, 35, 51, 0.09);
 }
 
 body {
@@ -23,44 +23,44 @@ body {
 }
 
 .page-shell {
-  width: min(100%, 1100px);
+  width: min(100%, 980px);
   margin: 0 auto;
-  padding: 24px 18px 36px;
+  padding: 28px 20px 48px;
 }
 
 .logo-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 12px;
-  margin-bottom: 8px;
+  margin: 0 0 22px;
 }
 
 .brand-logo {
-  width: min(82vw, 620px);
+  width: min(30vw, 150px);
+  min-width: 100px;
   height: auto;
   display: block;
-  filter: drop-shadow(0 12px 18px rgba(180, 9, 53, 0.12));
+  filter: drop-shadow(0 7px 12px rgba(164, 10, 48, 0.12));
 }
 
 .form-card {
-  width: min(100%, 760px);
+  width: min(100%, 720px);
   margin: 0 auto;
   background: var(--panel);
-  border: 1px solid rgba(17, 24, 39, 0.04);
-  border-radius: 28px;
+  border: 1px solid rgba(17, 24, 39, 0.05);
+  border-radius: 24px;
   box-shadow: var(--shadow);
-  padding: 32px 28px 26px;
+  padding: 34px 34px 30px;
 }
 
 .card-header {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   text-align: center;
 }
 
 .eyebrow {
-  margin: 0 0 8px;
-  font-size: 12px;
+  margin: 0 0 9px;
+  font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--primary);
@@ -69,28 +69,36 @@ body {
 
 h1 {
   margin: 0;
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  letter-spacing: -0.05em;
+  font-size: clamp(1.9rem, 3vw, 2.45rem);
+  letter-spacing: -0.045em;
+}
+
+.intro {
+  margin: 11px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px 22px;
+  gap: 20px;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 9px;
+  min-width: 0;
 }
 
 .field.full-width {
   grid-column: 1 / -1;
 }
 
-label {
-  font-size: 0.95rem;
+label,
+.account-field legend {
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text);
 }
@@ -100,118 +108,155 @@ input[type="email"],
 input[type="number"] {
   width: 100%;
   border: 1px solid var(--line);
-  border-radius: 14px;
-  background: #fdfdfd;
-  padding: 14px 16px;
+  border-radius: 11px;
+  background: #fff;
+  padding: 14px 15px;
   font: inherit;
+  font-size: 0.95rem;
   color: var(--text);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
-input:focus {
+input::placeholder {
+  color: #9aa1ad;
+}
+
+input:focus-visible {
   outline: none;
-  border-color: rgba(208, 16, 62, 0.65);
-  box-shadow: 0 0 0 4px rgba(208, 16, 62, 0.08);
+  border-color: rgba(208, 16, 62, 0.72);
+  box-shadow: 0 0 0 4px rgba(208, 16, 62, 0.09);
+}
+
+.account-field {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.account-field legend {
+  padding: 0;
+  margin-bottom: 10px;
 }
 
 .account-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 6px;
+  gap: 10px;
 }
 
 .option {
-  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  padding: 12px 16px;
+  padding: 11px 15px;
   border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fafafa;
+  border-radius: 10px;
+  background: #fff;
   font-weight: 500;
-  transition: all 0.18s ease;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.option:has(input:checked) {
+  border-color: rgba(208, 16, 62, 0.5);
+  background: #fff6f8;
 }
 
 .option input {
   accent-color: var(--primary);
 }
 
-.option:hover {
-  border-color: rgba(208, 16, 62, 0.35);
-  background: #fff5f7;
-}
-
 .submit-btn {
   margin-top: 26px;
   width: 100%;
-  border: none;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  color: white;
+  border: 0;
+  border-radius: 11px;
+  background: linear-gradient(110deg, var(--primary), var(--primary-dark));
+  color: #fff;
   font: inherit;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 16px 18px;
+  padding: 15px 18px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 12px 24px rgba(208, 16, 62, 0.20);
+  box-shadow: 0 9px 20px rgba(208, 16, 62, 0.17);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .submit-btn:hover {
   transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(208, 16, 62, 0.22);
 }
 
-.success-message {
-  margin-top: 26px;
-  border-radius: 18px;
-  background: linear-gradient(145deg, rgba(208, 16, 62, 0.08), rgba(208, 16, 62, 0.02));
-  border: 1px solid rgba(208, 16, 62, 0.12);
-  padding: 18px 20px;
-  color: var(--text);
+.submit-btn:focus-visible {
+  outline: 3px solid rgba(208, 16, 62, 0.3);
+  outline-offset: 3px;
+}
+
+.privacy-note,
+.demo-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
   text-align: center;
 }
 
-.success-message.hidden {
+.success-message {
+  margin-top: 24px;
+  border-radius: 15px;
+  background: #fff7f8;
+  border: 1px solid rgba(208, 16, 62, 0.16);
+  padding: 20px;
+  color: var(--text);
+  text-align: center;
+  line-height: 1.55;
+}
+
+.success-message.hidden,
+form.hidden {
   display: none;
 }
 
 .success-title {
   margin: 0 0 8px;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
 }
 
 .txn-id {
   margin: 0 0 8px;
-  font-size: 1rem;
   font-weight: 600;
 }
 
-.success-message p:last-child {
+.success-message p:nth-of-type(3) {
   margin: 0;
   color: var(--muted);
-  font-weight: 500;
 }
 
-@media (max-width: 640px) {
+.demo-note {
+  border-top: 1px solid rgba(208, 16, 62, 0.12);
+  padding-top: 12px;
+}
+
+@media (max-width: 600px) {
   .page-shell {
-    padding: 16px 12px 24px;
+    padding: 22px 14px 30px;
+  }
+
+  .brand-logo {
+    width: 112px;
   }
 
   .form-card {
-    padding: 22px 16px 18px;
-    border-radius: 22px;
+    padding: 25px 19px 22px;
+    border-radius: 19px;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 17px;
   }
 
-  .account-options {
-    flex-direction: column;
+  .field.full-width {
+    grid-column: auto;
   }
 }
